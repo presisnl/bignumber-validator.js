@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Example BIG-number validator</title>
+    </head>
+    <body>
+        <div id="log"></div>
+        <script src="bignumber-validator.js"></script>
+        <script>
+        try {
+            
+            var BIGnumber = ""; // 11 digits - for example BIGnumber see: https://www.bigregister.nl/zoeken/zoekenopnaamenspecialisme/
+            isValid_BIGNumber(BIGnumber);
+            
+        } catch (error) {
+            
+            /*jslint devel: true */
+            document.getElementById("log").innerHTML = "Er ging iets fout:" + error;
+        }
+        </script>
+    </body>
+</html>
