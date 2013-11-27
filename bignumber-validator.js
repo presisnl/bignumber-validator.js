@@ -1,3 +1,15 @@
+/* 
+ * bignumber-validator.js - v1.1
+ * 
+ * Error codes
+ * 
+ * ERROR_0: BIG-number not an integer
+ * ERROR_1: BIG-number != 11 characters
+ * ERROR_2: BIG-nummer has nonnumeric values
+ * ERROR_3: Fixed number != 9
+ * ERROR_4: Controle number incorrect
+ */
+
 function isNumeric(n) {
     
     "use strict";
@@ -12,11 +24,11 @@ function isValid_BIGNumber(strBIG) {
     var calcControlegetal, controlegetal, vastgetal, getal1, getal2, getal3, getal4, getal5, getal6, getal7, getal8, getal9;
         
     if (isNumeric(strBIG) === false) {
-        throw ("BIG-nummer is geen getal");
+        throw ("ERROR_0");
     }
     
     if (strBIG.length !== 11) {
-        throw ("BIG-nummer is ongelijk aan 11 karakters");
+        throw ("ERROR_1");
     } else {
         controlegetal = parseInt(strBIG.substr(0, 1), 10);
         vastgetal = strBIG.substr(1, 1);
@@ -32,13 +44,13 @@ function isValid_BIGNumber(strBIG) {
         
         if (isNumeric(controlegetal) === false || isNumeric(vastgetal) === false || isNumeric(getal1) === false || isNumeric(getal2) === false || isNumeric(getal3) === false || isNumeric(getal4) === false || isNumeric(getal5) === false || isNumeric(getal6) === false || isNumeric(getal7) === false || isNumeric(getal8) === false || isNumeric(getal9) === false) {
             
-            throw "BIG-nummer bevat niet-numerieke waardes";
+            throw "ERROR_2";
             
         } else {
             
             if (vastgetal !== "9") {
                 
-                throw ("Vast getal is ongelijk aan 9");
+                throw ("ERROR_3");
                 
             } else {
                 
@@ -64,7 +76,7 @@ function isValid_BIGNumber(strBIG) {
                
                 if (calcControlegetal !== controlegetal) {
                     
-                    throw ("Controle getal klopt niet: berekend controle getal = " + calcControlegetal + " in BIG-nummer staat " + controlegetal + "!");
+                    throw ("ERROR_4");
                 } else {
                     return true;
                 }
